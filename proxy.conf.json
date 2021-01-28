@@ -1,0 +1,10 @@
+{
+    "/api": {
+      "target": "https://www.metrovalencia.es/ap18/api/public/es/api/v1/V/",
+      "secure": true,
+      "changeOrigin": true,
+      "pathRewrite": {
+        "^/api": "http://localhost:4200/api"
+      }
+    }
+  }

@@ -1,0 +1,57 @@
+<div class="container">
+  <div class="box">
+    <h1 class="title">Consulta Tarjetas de Transporte</h1>
+    <h2 class="subtitle">Aquí puede consultar los datos de las Tarjetas de Viaje del Metro de Valencia</h2>
+    <div class="field">
+      <label class="label">
+        <h2 class="subtitle">Introduzca los 12 dígitos de su tarjeta:</h2>
+      </label>
+      <div class="control">
+        <input class="input" type="text" placeholder="" [(ngModel)]="numeroTarjeta"
+          placeholder="Ejemplo: 1234 5678 9012" mask="0000 0000 0000">
+      </div>
+    </div>
+    <div>
+      <button (click)="getDatosTarjeta()" class="button is-info">Consultar Tarjeta</button>
+    </div>
+  </div>
+  <progress *ngIf="showLoader" class="progress is-small is-info" max="100">15%</progress>
+  <div *ngIf="resultTarjeta" class="box">
+    <h2 class="subtitle">Datos de la Tarjeta: {{numeroTarjetaBuscada}}</h2>
+    <ul>
+      <li><strong>Título: </strong>{{tituloTarjeta}}</li>
+      <li><strong>Zona: </strong>{{zonaTarjeta}}</li>
+      <li><strong>Clase: </strong>{{claseTarjeta}}</li>
+      <li *ngIf="validezTarjeta"><strong>Validez: </strong>{{validezTarjeta}}</li>
+      <li><strong>Saldo: </strong>{{saldoTarjeta}}</li>
+    </ul>
+  </div>
+  <div *ngIf="showError" class="notification is-danger">
+    <button (click)="closeError()" class="delete"></button>
+    Se ha producido un error al intentar consultar la tarjeta. Por favor, compruebe que el número es correcto, o
+    inténtelo más tarde.
+  </div>
+
+</div>
+
+
+<footer class="footer">
+  <div class="content has-text-centered">
+    <p>
+      Creado por <a href="https://twitter.com/mraldisaads">Aldisa</a>. El código fuente está licenciado bajo la
+      licencia
+      GNU General Public License v3.0 y accesible en <a
+        href="https://github.com/MrAldisaADS/consulta-tarjeta-valencia">GitHub</a>. Esta web no es oficial ni tiene
+      ninguna relación con FGV, Metrovalencia o Móbilis.
+    </p>
+  </div>
+</footer>
+<!-- <footer class="footer">
+  <div class="content has-text-centered">
+    <p>
+      <strong>Bulma</strong> by <a href="https://jgthms.com">Jeremy Thomas</a>. The source code is licensed
+      <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
+      is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
+    </p>
+  </div>
+</footer> -->
